@@ -16,11 +16,28 @@ public class closestPair{
 
   public static double findClosest(double[][] points)
   {
+    double d_min = Double.POSITIVE_INFINITY;
+    int p1=0;
+    int p2=0; // these are the two points closest to each other
+
     // for each point in the array
-  //  for (int i=0; i<points.length; i++)
-  //  {
-      return distance(points[0], points[1]);
-  //  }
+    for (int i=0; i<points.length; i++)
+    {
+      // contains all distances for current point
+      // calculate distance between every other point and put in array
+      for(int j=0; j<points.length; j++)
+      {
+        double d = distance(points[i], points[j]);
+        if(d<d_min && d!=0)
+        {
+          // update dmin
+          p1=i; p2=j;
+          d_min = d;
+        }
+      }
+    }
+    System.out.println("Points " + p1 + " and " + p2 + " are closest to each other");
+    return d_min;
     //return -1;
 
   }

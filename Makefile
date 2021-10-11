@@ -7,8 +7,8 @@ JVM = java
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES = closestPair.java
-MAIN = closestPair
+CLASSES = convHull.java
+MAIN = convHull
 
 default:
 	$(JC) *.java
