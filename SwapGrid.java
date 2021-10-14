@@ -22,7 +22,7 @@ public class SwapGrid{
     }
 
     // perform swap
-    int[][] s = swap(grid, cols, rows);
+    int[][] s = swap(grid, rows, cols);
     for(int k=0; k<s.length; k++){
       System.out.println(Arrays.toString(s[k]));
     }
@@ -31,8 +31,8 @@ public class SwapGrid{
 
   public static int[][] swap(int[][] g, int r, int c){
     int[][] swapped = new int[c][r];
-    for(int i=0; i<g.length; i++){
-      for(int j=0; j<g[i].length; j++){
+    for(int i=0; i<swapped.length; i++){
+      for(int j=0; j<swapped[i].length; j++){
         swapped[i][j] = g[j][i];
       }
     }
