@@ -12,7 +12,11 @@ public class Modulus {
     int N = input.nextInt();
     //System.out.println("Please enter a value for Z");
     int Z = input.nextInt();
-
+    // constraints
+    if((N < 1) || (N>1000) || (Z < 0) || (Z > N)){
+      System.out.printf("%d", 0);
+      System.exit(0);
+    }
     // array list holding all pairs that satsify the condition
     ArrayList<Integer[]> pairs = new ArrayList<Integer[]>();
     // double for loop to n to find x and y
