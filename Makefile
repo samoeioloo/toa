@@ -7,8 +7,8 @@ JVM = java
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES = convHull.java
-MAIN = convHull
+CLASSES = scoring2.java
+MAIN = scoring2
 
 default:
 	$(JC) *.java

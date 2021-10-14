@@ -6,13 +6,7 @@ import java.lang.*;
 public class convHull {
   static double[][] POINTS = {{-4, 2}, {-1, 7},{1, 3}, {2, 8},  {2, 1}, {3,-3}, {5, 1}, {4, 4}};
 
-  public static void main(String[] args)
-  {
-    //System.out.println("Side of point 1 2 3 is " + side(POINTS[0], POINTS[1], POINTS[2]));
-    //ArrayList<Double[]> borders = new ArrayList<Double[]>();
 
-    isBorder();
-  }
 
   public static double side(double[] a, double[] b, double[] p)
   {
@@ -21,7 +15,7 @@ public class convHull {
     return d;
   }
 
-  public static void isBorder()
+  public static ArrayList<double[]>  isBorder()
   {
     // returns true if the two points create a line on border of convex hull
     ArrayList<double[]> borders = new ArrayList<double[]>() ;
@@ -34,7 +28,7 @@ public class convHull {
       //  System.out.println("Checking pair: " + Arrays.toString(POINTS[i]) + " " + Arrays.toString(POINTS[k]));
         ArrayList<Double> sides = new ArrayList<Double>();
         // checking tmp vals
-        for(int n=0; n<POINTS.length; n++)
+        for(int n=0; n<POINTS.length; n++) // O(n^3)
         {
           double[] test = POINTS[n];
           // find which side of line the test is on
@@ -47,7 +41,9 @@ public class convHull {
         // check if sides for this pairing is same
         if (neg(sides) || pos(sides))
         {
-          System.out.println("Pair " + Arrays.toString(POINTS[i]) + " and " + Arrays.toString(POINTS[k])+ " is a border");
+
+          borders.add(POINTS[i]);
+          borders.add(POINTS[k]);
         }
       }
     }
@@ -70,6 +66,13 @@ public class convHull {
       System.out.println("is all pos: ");
       System.out.println(pos(sides));*/
 //  return false;
+    return borders;
+  }
+  public static void main(String[] args)
+  {
+
+
+    System.out.println(isBorder().toString());
   }
 
   public static boolean neg(ArrayList<Double> d)
