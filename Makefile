@@ -7,8 +7,8 @@ JVM = java
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES = scoring2.java
-MAIN = scoring2
+CLASSES = binary_search.java
+MAIN = binary_search
 
 default:
 	$(JC) *.java

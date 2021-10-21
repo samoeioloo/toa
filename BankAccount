@@ -1,0 +1,36 @@
+/**
+ * Write a description of class BankAccount here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class BankAccount {
+
+    private final String number;
+    private String name;
+    private double balance;
+
+    public BankAccount(final String name, final String number) {
+        this.name=name;
+        this.number=number;
+    }
+
+    public double getBalance() { return balance; }
+    public void deposit(final double amount) { this.balance=this.balance+amount; }
+    public void withdraw(final double amount) { this.balance=this.balance-amount;}
+
+    public boolean equals(Object o) {
+        if (!(o instanceof BankAccount)) {
+            return false;
+        }
+        else {
+            BankAccount other=(BankAccount)o;
+            return this.number.equals(other.number);
+        }
+    }
+
+    public String toString() {
+        return "Account number "+number+", name "+name+", balance = R"+balance;
+    }
+
+}
